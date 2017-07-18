@@ -125,10 +125,14 @@ module.exports = function(router){
 
 	router.get('/getContactByNumber',function(req,resp){
 		var query = { phoneNumber: req.query.phoneNumber };
-		
-		Contact.find(query).toArray(function(err, results){
-   			console.log(results); // output all records
-   			resp.send(results);
+
+		Contact.find(query, function(err, results){
+			if(err){
+				console.log(err)
+			}else{
+	   			console.log(JSON.stringify(results)); // output all records
+	   			resp.send(results);				
+			}
 		});
 	});
 
