@@ -1,0 +1,32 @@
+<div class="page-header">
+	<h1>Check Number From DND List</h1>
+</div>
+<form name="form" ng-submit="checkNumber()" novalidate>
+	<label> Mobile Number</label>
+	<br>
+	<input class="form-control" type="text" name="mobile" placeholder="Enter Mobile Number" ng-model ="phoneNumber" ng-pattern="/^[0-9]{10,10}$/" required="">
+	<div ng-show="form.$submitted && form.mobile.$invalid" class="error">
+      	<span ng-show="form.mobile.$error.required">Contact number required</span>      	
+    </div>
+    <div ng-show="form.mobile.$invalid" class="error">
+    	<span ng-show="form.mobile.$error.pattern" >Please enter numeric and minimum 10 digits</span>
+    </div>
+	<br>
+	<button class="btn btn-primary" type="submit">Check</button>
+</form>
+<table ng-show="flag" class="table">
+	<tr>
+		<td>Area Code</td>
+		<td>Ops Type</td>
+		<td>Phone Number</td>
+		<td>Phone Type</td>
+		<td>Preference</td>
+	</tr>
+  	<tr ng-repeat="numberDetail in numberDetails">
+    	<td>{{ numberDetail.areaCode }}</td>
+    	<td>{{ numberDetail.opsType }}</td>
+	    <td>{{ numberDetail.phoneNumber }}</td>
+	    <td>{{ numberDetail.phoneType }}</td>
+	    <td>{{ numberDetail.prefrence }}</td>
+  	</tr>
+</table>

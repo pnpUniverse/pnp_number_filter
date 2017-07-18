@@ -1,0 +1,20 @@
+<div class="page-header">
+	<h1>Check Number From DND List</h1>
+</div>
+<form name="form" ng-submit="checkNumber()" novalidate>
+	<label> Mobile Number</label>
+	<br>
+	<input class="form-control" type="text" name="mobile" placeholder="Enter Mobile Number" ng-model ="mobileNumber" ng-pattern="/^[0-9]{10,10}$/" required="">
+	<div ng-show="form.$submitted && form.mobile.$invalid" class="error">
+      	<span ng-show="form.mobile.$error.required">Contact number required</span>      	
+    </div>
+    <div ng-show="form.mobile.$invalid" class="error">
+    	<span ng-show="form.mobile.$error.pattern" >Please enter numeric and minimum 10 digits</span>
+    </div>
+	<br>
+	<button class="btn btn-primary" type="submit">Check</button>
+</form>
+<div class="row show-hide-message" ng-show="flag">
+	<div class="alert alert-success" ng-show="success">Number is in DND</div>
+	<div class="alert alert-danger" ng-show="!success">Number is not in DND</div>
+</div>

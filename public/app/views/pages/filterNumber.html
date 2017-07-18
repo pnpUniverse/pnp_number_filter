@@ -1,0 +1,23 @@
+<div ng-controller="filterNumberCtrl">
+	<div class="page-header">
+		<h1>Filter DND Numbers</h1>
+	</div>
+	<form name="form" ng-submit="filterNumber()" novalidate>
+		<label> Upload File </label>
+		<br>
+		<!-- <input class="form-control" type="text" name="mobile" placeholder="Enter Mobile Number" ng-model ="mobileNumber" ng-pattern="/^[0-9]{10,10}$/" required="">
+		<div ng-show="form.$submitted && form.mobile.$invalid" class="error">
+	      	<span ng-show="form.mobile.$error.required">Contact number required</span>      	
+	    </div>
+	    <div ng-show="form.mobile.$invalid" class="error">
+	    	<span ng-show="form.mobile.$error.pattern" >Please enter numeric and minimum 10 digits</span>
+	    </div> -->
+	     <input type="file" file-model="file.upload" name="myFile" enctype="multipart/form-data">
+		<br>
+		<button class="btn btn-primary" type="submit">Save</button>
+	</form>
+	<div class="row show-hide-message" style="margin-top : 20px;" ng-show="flag">
+		<label ng-show="responseContent.availablefile">{{availableCount}}</label>  <a ng-csv="availableFileArray" filename="available.csv" field-separator="," decimal-separator="." ng-show="responseContent.availablefile">Available contents</a><br/>
+		<label ng-show="responseContent.notavailablefile">{{notAvailableCount}}</label><a ng-csv="notavailableFileArray" filename="notavailable.csv" field-separator="," decimal-separator="." ng-show="responseContent.notavailablefile">Not Available contents</a>
+	</div>
+</div>

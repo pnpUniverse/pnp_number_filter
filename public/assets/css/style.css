@@ -1,0 +1,27 @@
+.mytableInput{
+	margin-top: 30px;
+    margin-bottom: 15px;
+    padding: 5px 15px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}    
+
+textarea{
+	margin-top: 20px;
+}
+
+#loader {    
+	width: 100%;    
+	height: 100%;    
+	position: fixed;    
+	display: none;    
+	background-image: url('https://media.giphy.com/media/LG6iQwU99l9Bu/giphy.gif');    
+	float: left;    
+	top: 0;    
+	left: 0;    
+	z-index: 1111;    
+	background-repeat: no-repeat;    
+	background-position: center;    
+	background-color: #b1b1b1;    
+	opacity: .5;
+}
