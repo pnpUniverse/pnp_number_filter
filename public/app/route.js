@@ -25,14 +25,15 @@
             $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob):|data:image\//);
             $httpProvider.interceptors.push(interceptor);//*/
 		$routeProvider
-		.when('/',{
-			templateUrl : '/app/views/pages/home.html'
+		.when('/login',{
+			templateUrl : '/app/views/pages/login.html',
+			controller: 'loginCtrl'
+		}).when('/signUp',{
+			templateUrl : '/app/views/pages/singUp.html',
+			controller: 'signUpCtrl'
 		}).when('/addNumber',{
 			templateUrl : '/app/views/pages/addNumber.html',
 			controller: 'addNumberCtrl'
-		}).when('/checkNumber',{
-			templateUrl : '/app/views/pages/checkNumber.html',
-			controller: 'checkNumberCtrl'
 		}).when('/getNumber',{
 			templateUrl : '/app/views/pages/getNumber.html',
 			controller: 'getNumberCtrl'
@@ -42,7 +43,7 @@
 		}).when('/getNumberDetails',{
 			templateUrl : '/app/views/pages/getNumberDetails.html',
 			controller: 'getNumberDetailsCtrl'
-		}).otherwise({redirectTo : '/'});
+		}).otherwise({redirectTo : '/login'});
 
 		$locationProvider.html5Mode({
 			enabled : true,

@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <script src="assets/js/angular.js"></script>
+    <script src="assets/js/angular-storage.js"></script>
     <script src="assets/js/ng-csv.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-sanitize.min.js"></script>
     
@@ -20,8 +21,9 @@
     <script src="app/app.js"></script>
     <script src="app/route.js"></script>
 
+    <script src="app/controllers/loginController.js"></script>
+    <script src="app/controllers/signUpController.js"></script>
     <script src="app/controllers/addNumberController.js"></script>
-    <script src="app/controllers/checkNumberController.js"></script>
     <script src="app/controllers/getNumberController.js"></script>
     <script src="app/controllers/getNumberDetailsController.js"></script>
     <script src="app/controllers/filterNumberController.js"></script>
@@ -35,16 +37,15 @@
   <body>
     <div id="loader"></div>
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="loginCtrl" ng-show="showHeader">
       <div class="container">
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="/addNumber">Add Number</a></li>
-            <li><a href="/checkNumber">Check Number</a></li>
             <li><a href="/getNumber">Get All Number Details</a></li>
             <li><a href="/getNumberDetails">Get Number Details</a></li>
             <li><a href="/filterNumber">Filter DND Number</a></li>
-            <li><a href="/">Home</a></li>
+            <li><a ng-click="logout()">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

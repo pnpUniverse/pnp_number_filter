@@ -52,8 +52,8 @@ var option = {
     }
 };
 
-// var mongoURI = 'mongodb://localhost:27017/meanApp';
-var mongoURI = 'mongodb://pnpUniverse:dndMongo@ds163612.mlab.com:63612/dndmean';
+var mongoURI = 'mongodb://localhost:27017/meanApp';
+// var mongoURI = 'mongodb://pnpUniverse:dndMongo@ds163612.mlab.com:63612/dndmean';
 mongoose.connect(mongoURI, option).then(function(){
         console.log("sucessfully connected to mongoDB");
 }, function(err) {

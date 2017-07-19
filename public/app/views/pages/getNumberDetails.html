@@ -4,7 +4,7 @@
 <form name="form" ng-submit="checkNumber()" novalidate>
 	<label> Mobile Number</label>
 	<br>
-	<input class="form-control" type="text" name="mobile" placeholder="Enter Mobile Number" ng-model ="phoneNumber" ng-pattern="/^[0-9]{10,10}$/" required="">
+	<input class="form-control" type="text" name="mobile" placeholder="Enter Mobile Number" ng-model ="phoneNumber" ng-pattern="/^[0-9]{10,10}$/" required="" maxlength="10">
 	<div ng-show="form.$submitted && form.mobile.$invalid" class="error">
       	<span ng-show="form.mobile.$error.required">Contact number required</span>      	
     </div>

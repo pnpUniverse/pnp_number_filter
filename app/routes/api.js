@@ -27,18 +27,6 @@ var storage = multer.diskStorage({
   				numInfo.opsType = opsType;
   				numInfo.phoneType = phoneType;
 
-  				// addNum.push(numInfo);
-
-	  			// if(addNum.length == 10){	  					
-		  		// 	numInfo.collection.insertMany(addNum, function(err){
-		  		// 		if(err){
-		  		// 			console.log(err);
-		  		// 		}else{
-		  		// 			addNum = [];
-		 			// 	}
-	 				// });
-  				// }
-
   				numInfo.save(function(err){
   					if(err){
   						console.log(err);
@@ -69,6 +57,55 @@ var combineObject = function( keys, values)
 };
 
 module.exports = function(router){
+	router.post('/register', function(req,resp){
+		var user = new User();
+		user.userName = req.body.userName;
+		user.password = req.body.password;
+		user.name = req.body.name;
+		user.mobileNumber = req.body.mobileNumber;
+		user.save(function(err){
+			if(err){
+				resp.json({success:false, message:'User added Failed reason duplicate Entry'});
+				console.log(err);
+			}else{
+				resp.json({success:true, message:'User successfully created'});
+			}
+		});
+	});
+
+	router.post('/login', function(req,resp){
+		var query = { userName: req.body.userName };
+
+		User.findOne(query, function(err, results){
+			if(err){
+				console.log(err)
+			}else{
+	   			resp.json({success:true, message: results});				
+			}
+		});
+	});
+
+	router.post('/checkEmail', function(req,resp){
+		User.findOne(req.body, function(err, results){
+			if(err){
+				console.log(err)
+			}else{
+				resp.json({success:true, message: results});
+			}
+		});
+	});
+
+	router.post('/checkMobile', function(req,resp){
+		var query = { mobileNumber: req.body.mobileNumber };
+		User.findOne(query, function(err, results){
+			if(err){
+				console.log(err)
+			}else{
+	   			resp.json({success:true, message: results});
+			}
+		});
+	});
+
 	router.post('/addNumber', function(req,resp){
 		var user = new User();
 		user.mobileNumber = req.body.mobileNumber;

@@ -1,0 +1,62 @@
+<div class="wrapper">
+    <form class="form-signin" name="form" ng-submit="register()" novalidate>       
+     	<h2 class="form-signin-heading">Register here for free</h2>
+    	<input type="text" class="form-control" name="username" placeholder="Email Address" ng-model="user.userName" required="" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" maxlength="40" ng-blur="checkEmail()"/>
+      
+      <div ng-show="form.$submitted && form.username.$invalid" class="error">
+      		<span ng-show="form.username.$error.required">Email required</span>
+    	</div>
+      <div ng-show="form.username.$invalid" class="error">
+          <span ng-show="form.username.$error.pattern">invalid input for username</span>        
+      </div>
+      <div ng-show="duplicateEmail" class="error">
+          <span>Email already exist</span>
+      </div>
+
+  		<input type="password" class="form-control" name="password" placeholder="Password" ng-model="user.password" ng-minlength="8" ng-maxlength="16" required="" maxlength="25"/>
+  		<div ng-show="form.$submitted && form.password.$invalid" class="error">
+        	<span ng-show="form.password.$error.required">Password required</span>
+          <span ng-show="form.password.$error.minlength">Mininum 8 characters required</span>
+          <span ng-show="form.password.$error.maxlength">Maximum 16 characters required</span>
+      </div>
+      <input type="password" class="form-control" name="confirmPassword" placeholder="Retype Password" ng-maxlength="16" ng-minlength="8" ng-model="confirmPassword" required="" ng-blur="matchPassword()"maxlength="25"/>
+      <div ng-show="form.$submitted && form.confirmPassword.$invalid" class="error">
+          <span ng-show="form.confirmPassword.$error.required">Please retype password</span>
+          <span ng-show="form.confirmPassword.$error.minlength">Mininum 8 characters required</span>
+          <span ng-show="form.confirmPassword.$error.maxlength">Maximum 16 characters required</span>
+      </div>
+      <div ng-show="passwordFlag" class="error">
+          <span>Password unmatched</span>        
+      </div>
+      <input type="text" class="form-control" name="name" placeholder="Name" ng-model="user.name" ng-pattern="/^[a-zA-Z\s]*$/" required="" maxlength="40"/>
+      <div ng-show="form.$submitted && form.name.$invalid" class="error">
+          <span ng-show="form.name.$error.required">Name required</span>        
+      </div>
+      <div ng-show="form.name.$invalid" class="error">
+          <span ng-show="form.name.$error.pattern">invalid input for name</span>        
+      </div>
+      <input type="text" class="form-control" name="mobile" placeholder="Mobile" ng-model="user.mobileNumber" ng-blur="checkNumber()" ng-pattern="/^[0-9]{10,10}$/" required="" maxlength="10"/>
+      
+      <div ng-show="form.$submitted && form.mobile.$invalid" class="error">
+          <span ng-show="form.mobile.$error.required">Mobile number required</span>        
+      </div>
+      <div ng-show="form.mobile.$invalid" class="error">
+          <span ng-show="form.mobile.$error.pattern">invalid input for mobile</span>        
+      </div>
+      <div ng-show="duplicateMobile" class="error">
+          <span>Mobile number already exist</span>
+      </div>
+
+      <div class="checkbox">
+        <label><input type="checkbox" ng-model="termCheck">terms and conditions</label>
+      </div>
+      <div ng-show="form.$submitted" class="error">
+          <span ng-show="!termCheck">Terms and conditions are required</span>        
+      </div>
+  		<input type="submit" value="Register" class="btn btn-lg btn-primary btn-block"/>
+      already have account <a href="/login">login</a>
+      <div class="row show-hide-message" style="margin-top: 8%; margin-bottom: -39px;" ng-show="invalidFile">
+        <div class="alert alert-danger">{{errorResponseContents}}</div>
+      </div>
+    </form>
+</div>

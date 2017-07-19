@@ -1,0 +1,21 @@
+<div class="wrapper">
+    <form class="form-signin" name="form" ng-submit="login()" novalidate>       
+     	<h2 class="form-signin-heading">Welcome to DND</h2>
+    	<input type="text" class="form-control" name="username" placeholder="Email Address" ng-model="user.userName" required="" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" maxlength="40"/>
+      	<div ng-show="form.$submitted && form.username.$invalid" class="error">
+      		<span ng-show="form.username.$error.required">email required</span>
+      		<span ng-show="form.username.$error.email">invalid format</span>
+        </div>
+        <div ng-show="form.username.$invalid" class="error">
+          <span ng-show="form.username.$error.pattern">invalid input for username</span>        
+        </div>
+    		<input type="password" class="form-control" name="password" placeholder="Password" ng-model="user.password" required="" maxlength="25" ng-minlength="8" ng-maxlength="16"/>
+    		<div ng-show="form.$submitted && form.password.$invalid" class="error">
+      		<span ng-show="form.password.$error.required">password required</span> 
+          <span ng-show="form.password.$error.minlength">mininum 8 characters required</span>
+          <span ng-show="form.password.$error.maxlength">maximum 16 characters required</span>	
+        </div>
+    		<input type="submit" value="login" class="btn btn-lg btn-primary btn-block"/>
+    		Create user account <a href="/signUp">sign-up</a>
+    </form>
+</div>

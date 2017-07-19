@@ -1,1 +1,1 @@
-angular.module('userApp',['ngRoute', 'ngSanitize', 'ngCsv']);
+angular.module('userApp',['ngRoute', 'ngSanitize', 'ngCsv','ngStorage']);

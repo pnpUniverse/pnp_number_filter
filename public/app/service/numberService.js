@@ -17,7 +17,82 @@
 			$http(req).then(function successCallback(response){
 				deferred.resolve(response);
 			}),function errorCallback(response) {
-				console.log(response)
+				deferred.reject();
+			}
+			return deferred.promise;
+		}
+
+		obj.register = function(user) {
+			var deferred = $q.defer();
+			var req = {
+ 				method: 'POST',
+ 				url: 'api/register',
+ 				headers: {
+					'Content-Type': 'application/json'
+				},
+				data: user
+			}
+			
+			$http(req).then(function successCallback(response){
+				deferred.resolve(response);
+			}),function errorCallback(response) {
+				deferred.reject();
+			}
+			return deferred.promise;
+		}
+
+		obj.login = function(user) {
+			var deferred = $q.defer();
+			var req = {
+ 				method: 'POST',
+ 				url: 'api/login',
+ 				headers: {
+					'Content-Type': 'application/json'
+				},
+				data: user
+			}
+			
+			$http(req).then(function successCallback(response){
+				deferred.resolve(response);
+			}),function errorCallback(response) {
+				deferred.reject();
+			}
+			return deferred.promise;
+		}
+
+		obj.checkEmail = function(email) {
+			var deferred = $q.defer();
+			var req = {
+ 				method: 'POST',
+ 				url: 'api/checkEmail',
+ 				headers: {
+					'Content-Type': 'application/json'
+				},
+				data: {userName : email}
+			}
+			
+			$http(req).then(function successCallback(response){
+				deferred.resolve(response);
+			}),function errorCallback(response) {
+				deferred.reject();
+			}
+			return deferred.promise;
+		}
+
+		obj.checkNumber = function(number) {
+			var deferred = $q.defer();
+			var req = {
+ 				method: 'POST',
+ 				url: 'api/checkMobile',
+ 				headers: {
+					'Content-Type': 'application/json'
+				},
+				data: {mobileNumber : number}
+			}
+			
+			$http(req).then(function successCallback(response){
+				deferred.resolve(response);
+			}),function errorCallback(response) {
 				deferred.reject();
 			}
 			return deferred.promise;

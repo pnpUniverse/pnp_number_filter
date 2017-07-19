@@ -15,7 +15,11 @@
 	<br>
 	<button class="btn btn-primary" type="submit">Save</button>
 </form>
+
 <div class="row show-hide-message" style="margin-top : 20px;" ng-show="flag">
 	<div class="alert alert-success" ng-show="success">{{successResponseContents}}</div>
-	<div class="alert alert-danger" ng-show="!success">{{errorResponseContents}}</div>
+</div>
+
+<div class="row show-hide-message" style="margin-top : 20px;" ng-show="invalidFile">
+	<div class="alert alert-danger">{{errorResponseContents}}</div>
 </div>

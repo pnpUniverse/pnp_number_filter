@@ -1,6 +1,9 @@
 (function() {
   'use strict';
-  angular.module('userApp').controller('filterNumberCtrl', function($scope,numberService) {
+  angular.module('userApp').controller('filterNumberCtrl', function($scope,numberService, $sessionStorage, $location) {
+    if(angular.isUndefined($sessionStorage.user)){
+       $location.path('/login');
+    }
     $scope.mobileNumber = '';
     $scope.flag = false;
     $scope.file = {};
