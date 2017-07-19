@@ -16,7 +16,17 @@
 	    <td>{{ numberDetail.prefrence }}</td>
   	</tr>
 </table> -->
-<textarea ng-model="numSet" rows="15" columns="15"></textarea>
-<button ng-click="getNumberDetails()">get</button>
-<textarea ng-model="content" ng-list="&#10;" rows="10"></textarea>
+	<div class="box1">
+		<p>Mobile Numbers</p>
+		<textarea ng-model="numSet" class="myTextArea"></textarea>
+	</div>
+
+	<div class="box2">
+		<button ng-click="getNumberDetails()" class="myButton">=></button>
+	</div>
+
+	<div class="box3">
+		<p>DND Numbers</p>
+		<textarea ng-model="content" ng-list="&#10;" class="myTextArea"></textarea>
+	</div>
 </div>

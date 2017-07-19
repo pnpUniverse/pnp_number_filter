@@ -25,3 +25,56 @@ textarea{
 	background-color: #b1b1b1;    
 	opacity: .5;
 }
+
+.pt40 {
+	padding-top: 40px;
+}
+
+.myTextArea {
+	height: 250px;
+	width: 250px;
+	padding: 15px;
+	vertical-align: middle;
+}
+
+.myButton {
+	padding: 5px 15px;
+	border: 1px solid #ccc;
+	background: #0c74e9;
+	color: white;
+	font-size: 15px;
+	letter-spacing: 1px;
+	font-weight: 600;
+	border-radius: 3px;
+}
+
+.box1, .box3 {
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: hidden;
+	float: left;
+}
+
+.box2{
+	width: auto;
+	height: auto;
+	vertical-align: middle;
+	display: block;
+	overflow: hidden;
+	float: left;
+	padding-top: 13%;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.box1 p, .box3 p {
+	margin-bottom: 0px;
+	text-align: center;
+	font-weight: 700;
+	font-size: 16px;
+}
+
+.page-header {
+    border-bottom: none! important;
+}
